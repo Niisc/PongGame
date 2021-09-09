@@ -40,7 +40,7 @@ int main(void)
         rect2.y = rect2.y + 8 * (-IsKeyDown(KEY_UP)*(rect2.y > 0.f) + IsKeyDown(KEY_DOWN)*(rect2.y > -screenHeight));
 
         ball.speed.y = ball.speed.y + ((ball.position.y < 0.0f)||(ball.position.y > screenHeight))*2*-ball.speed.y + ((ball.position.x < 0)||(ball.position.x > screenWidth))*(ball.speed.y+GetRandomValue(-5,5));
-        ball.speed.x = ball.speed.x + (CheckCollisionCircleRec(ball.position, ball.radius, rect2)||CheckCollisionCircleRec(ball.position, ball.radius, rect1))*2*-(ball.speed.x) + ((ball.position.x < 0)||(ball.position.x > screenWidth))*(ball.speed.x*2+GetRandomValue(-2,2));
+        ball.speed.x = ball.speed.x + (CheckCollisionCircleRec(ball.position, ball.radius, rect2)||CheckCollisionCircleRec(ball.position, ball.radius, rect1))*2*-(ball.speed.x) + ((ball.position.x < 0)||(ball.position.x > screenWidth))*(ball.speed.x*2*-GetRandomValue(0,1));
 
         ball.position.x =  (ball.position.x + ball.speed.x)*((ball.position.x > 0)&&(ball.position.x < screenWidth)) + (screenWidth/2)*((ball.position.x < 0)||(ball.position.x > screenWidth));
         ball.position.y =  (ball.position.y + ball.speed.y)*((ball.position.x > 0)&&(ball.position.x < screenWidth)) + (screenHeight/2)*((ball.position.x < 0)||(ball.position.x > screenWidth));
